@@ -1,0 +1,6 @@
+services:
+  nalogka_connection_init.execute_initial_sql_subscriber:
+    class: 'Nalogka\DoctrineConnectionInit\DBAL\Subscriber\ConnectionInitSqlSubscriber'
+    arguments: ['%nalogka_connection_init.initial_sqls%']
+    tags: ['doctrine.event_subscriber']
+  Nalogka\DoctrineConnectionInit\DBAL\Subscriber\ConnectionInitSqlSubscriber: '@nalogka_connection_init.execute_initial_sql_subscriber'
